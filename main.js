@@ -27,6 +27,11 @@ class List {
                     );
                 }
             }
+            else{
+                $("#tasks").append(`
+                <span>No Tasks</span>
+                `);
+            }
         }
 
     }
@@ -139,3 +144,5 @@ function clearSelectedTasks() {
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
+
+//TODO: add a span in the tasks area saying there are no tasks if there are none
