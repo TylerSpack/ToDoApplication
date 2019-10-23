@@ -2,6 +2,20 @@ body {
   margin: 0;
   width: 100%; }
 
+.defaultInput, input, button {
+  background-color: #70e6ff;
+  width: 80%;
+  border-radius: 5px;
+  border: 3px solid black;
+  height: 25px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 1em; }
+
+button {
+  height: 40px;
+  margin: 0px 10px; }
+
 .hover:hover {
   cursor: pointer; }
 
@@ -19,11 +33,10 @@ body {
     .container .left .addNewList {
       display: flex;
       justify-content: space-between; }
-      .container .left .addNewList i:hover {
-        cursor: pointer; }
     .container .left #lists {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      align-items: center; }
       .container .left #lists .list {
         display: flex;
         justify-content: space-between;

@@ -6,6 +6,24 @@ body{
   margin: 0;
   width: 100%;
 }
+.defaultInput{
+  background-color: #70e6ff;
+  width: 80%;
+  border-radius: 5px;
+  border: 3px solid black;
+  height: 25px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 1em;
+}
+input{
+  @extend .defaultInput;
+}
+button{
+  @extend .defaultInput;
+  height: 40px;
+  margin: 0px 10px;
+}
 .hover:hover{
   cursor:pointer;
 }
@@ -23,13 +41,11 @@ body{
     .addNewList{
       display:flex;
       justify-content: space-between;
-      i:hover{
-        cursor: pointer;
-      }
     }
     #lists{
       display:flex;
       flex-direction: column;
+      align-items: center;
       .list{
         display:flex;
         justify-content: space-between;
