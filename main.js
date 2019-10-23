@@ -11,17 +11,17 @@ class List {
     static DrawTasks() {
         if (this.allLists.length > 0 && this.activeListIndex < this.allLists.length) {
             $("#tasks").html("");
+            $("#tasks").append(`<span class="listName">${this.allLists[this.activeListIndex].name}</span>`);
             if (this.allLists[this.activeListIndex].tasks.length > 0) {
                 for (let i = 0; i < this.allLists[this.activeListIndex].tasks.length; i++) {
                     $("#tasks").append(
                         `
-                <span></span>
                 <div class="task" id="task${i}">
                     <div>
                         <i class="${this.allLists[this.activeListIndex].tasks[i].checkboxClass}" onclick="List.toggleChecked(${i})"></i>
                          <span>${this.allLists[this.activeListIndex].tasks[i].name}</span>
                     </div>
-                    <i class="fas fa-trash" onclick="deleteTask('task${i}')"></i>
+                    <i class="fas fa-trash" onclick="deleteTask('${i}')"></i>
                 </div>
                 `
                     );
@@ -40,16 +40,14 @@ class List {
             }
             $("#lists").append(
                 `
-                <div class="list ${isActive}" id="list${i}">
-                <div>
-                     <span onclick="selectList(${i})" class="hover">${List.allLists[i].name}</span>
+                <div class="list ${isActive} hover" id="list${i}" onclick="selectList(${i})">
+                    ${List.allLists[i].name}
                 </div>
-                <i class="fas fa-trash" onclick="deleteList(${i})"></i>
-            </div>
                 `
             );
             isActive = "";
         }
+        $("#lists").append(`<button onclick="deleteList(List.activeListIndex)")>Delete List</button>`)
     }
 
     static toggleChecked(index) {
@@ -94,13 +92,13 @@ function addTask(event) {
 
 function deleteTask(index) {
     List.allLists[List.activeListIndex].tasks.splice(index, 1);
-    // let selector = "#task" + index;
-    // $(selector).animate({
+    // $(`#task${index}`).animate({
     //     height: 0,
     //     opacity: 0
-    // }, 500, function(){
-    //     $("#task" + index).remove();
-    // })
+    // },
+    //     500, function(){
+    //     $(this).remove();
+    // });
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
