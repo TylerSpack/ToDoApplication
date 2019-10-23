@@ -1,0 +1,64 @@
+$padding: 5px;
+$margin: 15px;
+$gray: #dadfea;
+$gunmetal: #929292;
+body{
+  margin: 0;
+  width: 100%;
+}
+.hover:hover{
+  cursor:pointer;
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display:flex;
+  .left{
+    padding: $padding;
+    width: 30%;
+    display:flex;
+    flex-direction: column;
+    background-color: $gray;
+    .addNewList{
+      display:flex;
+      justify-content: space-between;
+      i:hover{
+        cursor: pointer;
+      }
+    }
+    #lists{
+      display:flex;
+      flex-direction: column;
+      .list{
+        display:flex;
+        justify-content: space-between;
+      }
+      .active{
+        background-color: #929292;
+      }
+    }
+
+  }
+  .right{
+    padding: $padding;
+    width: 70%;
+    display:flex;
+    flex-direction: column;
+    background-color: $gunmetal;
+    #listHeader{
+      display:flex;
+      justify-content: space-between;
+    }
+    .clearButtons{
+      display:flex;
+      justify-content: space-around;
+    }
+    #tasks{
+      .task{
+        display:flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  width: 100%; }
+
+.hover:hover {
+  cursor: pointer; }
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex; }
+  .container .left {
+    padding: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background-color: #dadfea; }
+    .container .left .addNewList {
+      display: flex;
+      justify-content: space-between; }
+      .container .left .addNewList i:hover {
+        cursor: pointer; }
+    .container .left #lists {
+      display: flex;
+      flex-direction: column; }
+      .container .left #lists .list {
+        display: flex;
+        justify-content: space-between; }
+      .container .left #lists .active {
+        background-color: #929292; }
+  .container .right {
+    padding: 5px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #929292; }
+    .container .right #listHeader {
+      display: flex;
+      justify-content: space-between; }
+    .container .right .clearButtons {
+      display: flex;
+      justify-content: space-around; }
+    .container .right #tasks .task {
+      display: flex;
+      justify-content: space-between; }
