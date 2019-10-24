@@ -17,7 +17,7 @@ class List {
                     $("#tasks").append(
                         `
                 <div class="task" id="task${i}">
-                    <div>
+                    <div style="width: 100%; display:flex; align-items: center;">
                         <i class="${this.allLists[this.activeListIndex].tasks[i].checkboxClass}" onclick="List.toggleChecked(${i})"></i>
                          <input type="text" value="${this.allLists[this.activeListIndex].tasks[i].name}" onkeyup="updateTaskName(${i}, this.value)">
                     </div>
