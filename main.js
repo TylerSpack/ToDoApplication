@@ -9,8 +9,8 @@ class List {
     static activeListIndex = 0;
 
     static DrawTasks() {
+        $("#tasks").html("");
         if (this.allLists.length > 0 && this.activeListIndex < this.allLists.length) {
-            $("#tasks").html("");
             $("#tasks").append(`<span class="listName">${this.allLists[this.activeListIndex].name}</span>`);
             if (this.allLists[this.activeListIndex].tasks.length > 0) {
                 for (let i = 0; i < this.allLists[this.activeListIndex].tasks.length; i++) {
@@ -29,7 +29,7 @@ class List {
             }
             else{
                 $("#tasks").append(`
-                <span>No Tasks</span>
+                <span style="font-size: 1.5em; margin-bottom: 5px">No Tasks</span>
                 `);
             }
         }
@@ -52,7 +52,10 @@ class List {
             );
             isActive = "";
         }
-        $("#lists").append(`<button onclick="deleteList(List.activeListIndex)")>Delete List</button>`)
+        if(List.allLists.length > 0){
+            $("#lists").append(`<button onclick="deleteList(List.activeListIndex)")>Delete List</button>`)
+        }
+
     }
 
     static toggleChecked(index) {
@@ -129,18 +132,23 @@ function selectList(index) {
 }
 
 function clearAll() {
-    List.allLists[List.activeListIndex].tasks = [];
+    if(List.allLists.length > 0) {
+        List.allLists[List.activeListIndex].tasks = [];
+    }
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 
 function clearSelectedTasks() {
-    for (let i = 0; i < List.allLists[List.activeListIndex].tasks.length; i++) {
-        if (List.allLists[List.activeListIndex].tasks[i].checkboxClass === "far fa-check-square") {
-            List.allLists[List.activeListIndex].tasks.splice(i, 1);
-            i--;
+    if(List.allLists.length > 0){
+        for (let i = 0; i < List.allLists[List.activeListIndex].tasks.length; i++) {
+            if (List.allLists[List.activeListIndex].tasks[i].checkboxClass === "far fa-check-square") {
+                List.allLists[List.activeListIndex].tasks.splice(i, 1);
+                i--;
+            }
         }
     }
+
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
