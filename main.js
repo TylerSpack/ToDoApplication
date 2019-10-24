@@ -19,7 +19,7 @@ class List {
                 <div class="task" id="task${i}">
                     <div>
                         <i class="${this.allLists[this.activeListIndex].tasks[i].checkboxClass}" onclick="List.toggleChecked(${i})"></i>
-                         <span>${this.allLists[this.activeListIndex].tasks[i].name}</span>
+                         <input type="text" value="${this.allLists[this.activeListIndex].tasks[i].name}" onkeyup="updateTaskName(${i}, this.value)">
                     </div>
                     <i class="fas fa-trash" onclick="deleteTask('${i}')"></i>
                 </div>
@@ -57,7 +57,6 @@ class List {
         }
 
     }
-
     static toggleChecked(index) {
         if (this.allLists[this.activeListIndex].tasks[index].checkboxClass === "far fa-check-square") {
             this.allLists[this.activeListIndex].tasks[index].checkboxClass = "far fa-square";
@@ -75,7 +74,11 @@ if (List.allLists.length > 0) {
     List.DrawTasks();
 }
 
-
+function updateTaskName(index, name){
+    console.log(List.allLists[List.activeListIndex].tasks[index]);
+    List.allLists[List.activeListIndex].tasks[index].name = name;
+    console.log(List.allLists[List.activeListIndex].tasks[index]);
+}
 function addList(event) {
     if (event.which === 13) {
         List.allLists.unshift(new List($("#newListName").val()));
