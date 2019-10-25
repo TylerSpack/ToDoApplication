@@ -53,7 +53,7 @@ class List {
             isActive = "";
         }
         if(List.allLists.length > 0){
-            $("#lists").append(`<button onclick="deleteList(List.activeListIndex)")>Delete List</button>`)
+            $("#lists").append(`<button onclick="deleteList(List.activeListIndex)" class="deleteBtn")>Delete List</button>`)
         }
 
     }
@@ -80,7 +80,7 @@ function updateTaskName(index, name){
     console.log(List.allLists[List.activeListIndex].tasks[index]);
 }
 function addList(event) {
-    if (event.which === 13) {
+    if (event.which === 13 && $("#newListName").val() !== "") {
         List.allLists.unshift(new List($("#newListName").val()));
         List.DrawLists();
         selectList(0);
@@ -155,5 +155,3 @@ function clearSelectedTasks() {
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
-
-//TODO: add a span in the tasks area saying there are no tasks if there are none
