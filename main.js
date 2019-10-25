@@ -21,7 +21,7 @@ class List {
                         <i class="${this.allLists[this.activeListIndex].tasks[i].checkboxClass}" onclick="List.toggleChecked(${i})"></i>
                          <input type="text" value="${this.allLists[this.activeListIndex].tasks[i].name}" onkeyup="updateTaskName(${i}, this.value)">
                     </div>
-                    <i class="fas fa-trash" onclick="deleteTask('${i}')"></i>
+                    <i class="fas fa-trash" onclick="deleteTask('${i}', this)"></i>
                 </div>
                 `
                     );
@@ -78,6 +78,7 @@ function updateTaskName(index, name){
     console.log(List.allLists[List.activeListIndex].tasks[index]);
     List.allLists[List.activeListIndex].tasks[index].name = name;
     console.log(List.allLists[List.activeListIndex].tasks[index]);
+    localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 function addList(event) {
     if (event.which === 13 && $("#newListName").val() !== "") {
@@ -101,16 +102,16 @@ function addTask(event) {
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 
-function deleteTask(index) {
+function deleteTask(index, el) {
     List.allLists[List.activeListIndex].tasks.splice(index, 1);
-    // $(`#task${index}`).animate({
-    //     height: 0,
-    //     opacity: 0
-    // },
-    //     500, function(){
-    //     $(this).remove();
-    // });
-    List.DrawTasks();
+    $(el).parent().animate({
+            opacity: 0,
+            width: 0
+        },
+        1000, function(){
+            List.DrawTasks();
+        });
+    // $(el).parent().fadeOut("slow", function(){});
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 
@@ -155,3 +156,4 @@ function clearSelectedTasks() {
     List.DrawTasks();
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
+

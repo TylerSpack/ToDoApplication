@@ -22,6 +22,7 @@ body{
 .newInput{
   @extend .defaultInput;
   background-color: #b564af;
+  border-color:white;
 }
 .taskInput{
 
@@ -61,15 +62,18 @@ button{
         margin: 5px 0;
         padding: 5px;
         border-radius: 5px;
-        border: 3px solid black;
+        border: 3px solid white;
         background: linear-gradient(to right, rgba(0,0,0,0.25) 0%,rgba(5,5,5,0.25) 1%,rgba(255,255,255,0.1) 50%,rgba(0,0,0,0.25) 100%);
         width:calc(100% - 26px);
+        color:white;
       }
       .deleteBtn{
         background-color: #8c1919;
+        border-color:black;
       }
       .active{
         background-color: #be81bf;
+        color:black;
       }
     }
 
@@ -87,6 +91,7 @@ button{
     .clearButtons{
       display:flex;
       justify-content: space-around;
+      border-color:black;
     }
     #tasks{
       display:flex;
@@ -106,7 +111,7 @@ button{
         margin: 10px 0;
         padding: 5px;
         border-radius: 5px;
-        border: 3px solid black;
+        border: 3px solid white;
         background: linear-gradient(to right, rgba(0,0,0,0.25) 0%,rgba(5,5,5,0.25) 1%,rgba(255,255,255,0.1) 50%,rgba(0,0,0,0.25) 100%);
         width:calc(100% - 26px);
         div > input{
