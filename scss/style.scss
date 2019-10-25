@@ -16,8 +16,12 @@ body{
   padding: 5px;
   font-size: 1em;
 }
+.defaultInput::placeholder{
+  color:white;
+}
 .newInput{
   @extend .defaultInput;
+  background-color: #b564af;
 }
 .taskInput{
 
@@ -26,7 +30,7 @@ button{
   @extend .defaultInput;
   height: 40px;
   margin: 0px 10px;
-  background-color: #4fc20a;
+  background-color: #408a14;
 }
 .hover:hover{
   cursor:pointer;
@@ -41,7 +45,7 @@ button{
     width: 30%;
     display:flex;
     flex-direction: column;
-    background-color: $gunmetal;
+    background-color: #43094a;
     .addNewList{
       display:flex;
       justify-content: space-between;
@@ -62,10 +66,10 @@ button{
         width:calc(100% - 26px);
       }
       .deleteBtn{
-        background-color: red;
+        background-color: #8c1919;
       }
       .active{
-        background-color: #929292;
+        background-color: #be81bf;
       }
     }
 
@@ -75,7 +79,7 @@ button{
     width: 70%;
     display:flex;
     flex-direction: column;
-    background-color: $gray;
+    background-color: #802d8a;
     #listHeader{
       display:flex;
       justify-content: space-between;
@@ -90,6 +94,7 @@ button{
       align-items: center;
       .listName{
         font-size: 3em;
+        color:white;
         text-align: center;
         font-weight: bold;
       }

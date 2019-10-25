@@ -12,10 +12,16 @@ body {
   padding: 5px;
   font-size: 1em; }
 
+.defaultInput::placeholder, .newInput::placeholder, button::placeholder {
+  color: white; }
+
+.newInput {
+  background-color: #b564af; }
+
 button {
   height: 40px;
   margin: 0px 10px;
-  background-color: #4fc20a; }
+  background-color: #408a14; }
 
 .hover:hover {
   cursor: pointer; }
@@ -30,7 +36,7 @@ button {
     width: 30%;
     display: flex;
     flex-direction: column;
-    background-color: #929292; }
+    background-color: #43094a; }
     .container .left .addNewList {
       display: flex;
       justify-content: space-between; }
@@ -49,15 +55,15 @@ button {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, rgba(5, 5, 5, 0.25) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0.25) 100%);
         width: calc(100% - 26px); }
       .container .left #lists .deleteBtn {
-        background-color: red; }
+        background-color: #8c1919; }
       .container .left #lists .active {
-        background-color: #929292; }
+        background-color: #be81bf; }
   .container .right {
     padding: 5px;
     width: 70%;
     display: flex;
     flex-direction: column;
-    background-color: #dadfea; }
+    background-color: #802d8a; }
     .container .right #listHeader {
       display: flex;
       justify-content: space-between; }
@@ -70,6 +76,7 @@ button {
       align-items: center; }
       .container .right #tasks .listName {
         font-size: 3em;
+        color: white;
         text-align: center;
         font-weight: bold; }
       .container .right #tasks .task {
