@@ -75,9 +75,7 @@ if (List.allLists.length > 0) {
 }
 
 function updateTaskName(index, name){
-    console.log(List.allLists[List.activeListIndex].tasks[index]);
     List.allLists[List.activeListIndex].tasks[index].name = name;
-    console.log(List.allLists[List.activeListIndex].tasks[index]);
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 function addList(event) {
@@ -111,7 +109,6 @@ function deleteTask(index, el) {
         1000, function(){
             List.DrawTasks();
         });
-    // $(el).parent().fadeOut("slow", function(){});
     localStorage.setItem('lists', JSON.stringify(List.allLists));
 }
 
